@@ -1,5 +1,6 @@
 package co.sandyedemo.ecomdemo.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import co.sandyedemo.ecomdemo.Fragments.MyOrderedProductsDetailPage;
-import co.sandyedemo.ecomdemo.MVP.Ordere;
+import co.sandyedemo.ecomdemo.Models.Order;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 
@@ -22,11 +23,11 @@ import java.util.List;
 public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersViewHolder> {
 
     Context context;
-    List<Ordere> orderes;
+    List<Order> orders;
 
-    public MyOrdersAdapter(Context context, List<Ordere> orderes) {
+    public MyOrdersAdapter(Context context, List<Order> orders) {
         this.context = context;
-        this.orderes = orderes;
+        this.orders = orders;
     }
 
     @Override
@@ -37,13 +38,13 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(MyOrdersViewHolder holder, final int position) {
+    public void onBindViewHolder(MyOrdersViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         setProductsData(holder, position);
-        holder.date.setText("Date: " + orderes.get(position).getDate());
+        holder.date.setText("Date: " + orders.get(position).getDate());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyOrderedProductsDetailPage.orderes = orderes;
+                MyOrderedProductsDetailPage.orders = orders;
                 MyOrderedProductsDetailPage.pos = position;
                 ((MainActivity) context).loadFragment(new MyOrderedProductsDetailPage(), true);
             }
@@ -53,16 +54,16 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersViewHolder> {
 
     @Override
     public int getItemCount() {
-        return orderes.size();
+        return orders.size();
     }
 
 
     private void setProductsData(MyOrdersViewHolder holder, int position) {
-        Log.d("orderProducts", orderes.get(position).getOrdredproduct().size() + "");
+        Log.d("orderProducts", orders.get(position).getOrdredproduct().size() + "");
         GridLayoutManager gridLayoutManager;
         gridLayoutManager = new GridLayoutManager(context, 1);
         holder.orderedProductsRecyclerView.setLayoutManager(gridLayoutManager);
-        OrderProductListAdapter myOrdersAdapter = new OrderProductListAdapter(context, orderes.get(position).getOrdredproduct());
+        OrderProductListAdapter myOrdersAdapter = new OrderProductListAdapter(context, orders.get(position).getOrdredproduct());
         holder.orderedProductsRecyclerView.setAdapter(myOrdersAdapter);
 
     }

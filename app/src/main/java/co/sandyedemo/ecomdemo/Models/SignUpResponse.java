@@ -1,4 +1,4 @@
-package co.sandyedemo.ecomdemo.MVP;
+package co.sandyedemo.ecomdemo.Models;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ public class SignUpResponse {
     private String success;
     private String message;
     private Integer userid;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public String getSuccess() {
         return success;

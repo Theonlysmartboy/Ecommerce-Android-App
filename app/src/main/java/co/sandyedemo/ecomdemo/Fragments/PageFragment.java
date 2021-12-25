@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import co.sandyedemo.ecomdemo.MVP.Product;
+import co.sandyedemo.ecomdemo.Models.Product;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Activities.SplashScreen;
@@ -44,7 +44,7 @@ public class PageFragment extends Fragment {
                     .into(image_one);
         }catch (Exception e)
         {
-
+            Log.d("Error", "onCreateView: "+e);
         }
         Log.d("positionOfSlider", position + "");
         image_one.setOnClickListener(new View.OnClickListener() {

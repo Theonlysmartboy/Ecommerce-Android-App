@@ -1,5 +1,5 @@
 
-package co.sandyedemo.ecomdemo.MVP;
+package co.sandyedemo.ecomdemo.Models;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +23,7 @@ public class Product {
     private String stock;
     private String description;
     private List<String> images = null;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
 
 

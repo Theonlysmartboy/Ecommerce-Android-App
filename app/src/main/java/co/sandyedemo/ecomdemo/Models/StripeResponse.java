@@ -1,4 +1,4 @@
-package co.sandyedemo.ecomdemo.MVP;
+package co.sandyedemo.ecomdemo.Models;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +11,7 @@ private String status;
 private String date;
 private String paymentref;
 private String currency;
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+private Map<String, Object> additionalProperties = new HashMap<>();
 
 public String getSuccess() {
 return Success;

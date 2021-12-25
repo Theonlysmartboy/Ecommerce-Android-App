@@ -16,7 +16,7 @@ import co.sandyedemo.ecomdemo.Activities.AccountVerification;
 import co.sandyedemo.ecomdemo.Adapters.MyOrdersAdapter;
 import co.sandyedemo.ecomdemo.Config;
 import co.sandyedemo.ecomdemo.Activities.Login;
-import co.sandyedemo.ecomdemo.MVP.MyOrdersResponse;
+import co.sandyedemo.ecomdemo.Models.MyOrdersResponse;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
@@ -52,7 +52,7 @@ public class MyOrders extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_my_orders, container, false);
         ButterKnife.bind(this, view);
-        MainActivity.title.setText("My Orders");
+        MainActivity.title.setText(R.string.my_orders);
         if (!MainActivity.userId.equalsIgnoreCase("")) {
             getMyOrders();
         } else {

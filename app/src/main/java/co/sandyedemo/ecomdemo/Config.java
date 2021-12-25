@@ -11,21 +11,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import co.sandyedemo.ecomdemo.Activities.Login;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
-import co.sandyedemo.ecomdemo.PaymentIntegrationMethods.OrderConfirmed;
 import co.sandyedemo.ecomdemo.Activities.SignUp;
 import co.sandyedemo.ecomdemo.Adapters.CartListAdapter;
 import co.sandyedemo.ecomdemo.Fragments.ChoosePaymentMethod;
 import co.sandyedemo.ecomdemo.Fragments.MyCartList;
-import co.sandyedemo.ecomdemo.MVP.CartistResponse;
-import co.sandyedemo.ecomdemo.MVP.SignUpResponse;
-
-import co.sandyedemo.ecomdemo.R;
-
+import co.sandyedemo.ecomdemo.Models.CartistResponse;
+import co.sandyedemo.ecomdemo.Models.SignUpResponse;
+import co.sandyedemo.ecomdemo.PaymentIntegrationMethods.OrderConfirmed;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -36,6 +32,7 @@ public class Config {
    // public static final String PAYPAL_CLIENT_ID = "your_paypal_id";
     // id to handle the notification in the notification tray
     public static final String SHARED_PREF = "ah_firebase";
+    public static final String PAYPAL_CLIENT_ID = "" ;
 
     public static void moveTo(Context context, Class targetClass) {
         Intent intent = new Intent(context, targetClass);

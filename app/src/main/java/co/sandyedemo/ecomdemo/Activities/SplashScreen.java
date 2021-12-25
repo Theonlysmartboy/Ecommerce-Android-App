@@ -14,9 +14,9 @@ import android.widget.TextView;
 import co.sandyedemo.ecomdemo.Common;
 import co.sandyedemo.ecomdemo.Config;
 import co.sandyedemo.ecomdemo.DetectConnection;
-import co.sandyedemo.ecomdemo.MVP.CategoryListResponse;
-import co.sandyedemo.ecomdemo.MVP.Product;
-import co.sandyedemo.ecomdemo.MVP.SliderListResponse;
+import co.sandyedemo.ecomdemo.Models.CategoryListResponse;
+import co.sandyedemo.ecomdemo.Models.Product;
+import co.sandyedemo.ecomdemo.Models.SliderListResponse;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
 import com.google.gson.Gson;
@@ -69,7 +69,7 @@ public class SplashScreen extends Activity {
         if (DetectConnection.checkInternetConnection(getApplicationContext())) {
             getCategoryList();
         } else {
-            errorText.setText("Internet Connection Not Available");
+            errorText.setText(R.string.no_internet);
             internetNotAvailable.setVisibility(View.VISIBLE);
             splashImage.setVisibility(View.GONE);
         }
@@ -82,7 +82,7 @@ public class SplashScreen extends Activity {
             splashImage.setVisibility(View.VISIBLE);
             getCategoryList();
         } else {
-            errorText.setText("Internet Connection Not Available");
+            errorText.setText(R.string.isue_persisits_message);
             internetNotAvailable.setVisibility(View.VISIBLE);
             splashImage.setVisibility(View.GONE);
         }
@@ -102,7 +102,7 @@ public class SplashScreen extends Activity {
                     editor.commit();
                     getSliderList();
                 } catch (Exception e) {
-                    errorText.setText("No Category Added In This Store!");
+                    errorText.setText(R.string.no_category);
                     internetNotAvailable.setVisibility(View.VISIBLE);
                     splashImage.setVisibility(View.GONE);
                 }
@@ -111,7 +111,7 @@ public class SplashScreen extends Activity {
             @Override
             public void failure(RetrofitError error) {
                 Log.e("error", error.toString());
-                errorText.setText("Internet Connection Not Available");
+                errorText.setText(R.string.server_error);
                 internetNotAvailable.setVisibility(View.VISIBLE);
                 splashImage.setVisibility(View.GONE);
             }
@@ -130,7 +130,7 @@ public class SplashScreen extends Activity {
             @Override
             public void failure(RetrofitError error) {
                 Log.e("error", error.toString());
-                errorText.setText("Internet Connection Not Available");
+                errorText.setText(R.string.server_error);
                 internetNotAvailable.setVisibility(View.VISIBLE);
                 splashImage.setVisibility(View.GONE);
             }
@@ -151,7 +151,7 @@ public class SplashScreen extends Activity {
                     editor.commit();
                     moveNext();
                 } catch (Exception e) {
-                    errorText.setText("No Product Added In This Store!");
+                    errorText.setText(R.string.no_method);
                     internetNotAvailable.setVisibility(View.VISIBLE);
                     splashImage.setVisibility(View.GONE);
                 }
@@ -160,7 +160,7 @@ public class SplashScreen extends Activity {
             @Override
             public void failure(RetrofitError error) {
                 Log.e("error", error.toString());
-                errorText.setText("Internet Connection Not Available");
+                errorText.setText(R.string.server_error);
                 internetNotAvailable.setVisibility(View.VISIBLE);
                 splashImage.setVisibility(View.GONE);
             }
@@ -190,13 +190,12 @@ public class SplashScreen extends Activity {
         }
         if (Common.getSavedUserData(SplashScreen.this, "email").equalsIgnoreCase("")&&!isFromNotification) {
             Config.moveTo(SplashScreen.this, Login.class);
-            finishAffinity();
         } else {
             Intent intent = new Intent(SplashScreen.this, MainActivity.class);
             intent.putExtra("isFromNotification", isFromNotification);
             startActivity(intent);
-            finishAffinity();
         }
+        finishAffinity();
 
     }
 

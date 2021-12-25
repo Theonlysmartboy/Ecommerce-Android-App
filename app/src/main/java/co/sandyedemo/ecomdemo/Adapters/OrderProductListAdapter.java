@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import co.sandyedemo.ecomdemo.MVP.Product;
+import co.sandyedemo.ecomdemo.Models.Product;
 import co.sandyedemo.ecomdemo.R;
 import com.squareup.picasso.Picasso;
 

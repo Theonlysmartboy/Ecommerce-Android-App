@@ -1,11 +1,11 @@
 
-package co.sandyedemo.ecomdemo.MVP;
+package co.sandyedemo.ecomdemo.Models;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Ordere {
+public class Order {
 
     private String orderid;
     private String paymentmode;
@@ -15,7 +15,7 @@ public class Ordere {
     private String total;
     private String address;
     private List<Product> ordredproduct = null;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
 
     public String getAddress() {

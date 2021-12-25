@@ -17,7 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import co.sandyedemo.ecomdemo.Adapters.SearchProductListAdapter;
-import co.sandyedemo.ecomdemo.MVP.Product;
+import co.sandyedemo.ecomdemo.Models.Product;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Activities.SplashScreen;
@@ -46,7 +46,7 @@ public class SearchProducts extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.activity_search_products, container, false);
         ButterKnife.bind(this, view);
-        defaultMessage.setText("Search Any Product");
+        defaultMessage.setText(R.string.search_any_product);
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -71,7 +71,7 @@ public class SearchProducts extends Fragment {
     public void onStart() {
         super.onStart();
         ((MainActivity) getActivity()).lockUnlockDrawer(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        MainActivity.title.setText("Search");
+        MainActivity.title.setText(R.string.search);
 
     }
 
@@ -92,7 +92,7 @@ public class SearchProducts extends Fragment {
                     productList.add(SplashScreen.allProductsData.get(i));
                 }
             if (productList.size() < 1) {
-                defaultMessage.setText("Record Not Found");
+                defaultMessage.setText(R.string.record_not_found);
                 defaultMessage.setVisibility(View.VISIBLE);
             } else {
                 defaultMessage.setVisibility(View.GONE);
@@ -100,7 +100,7 @@ public class SearchProducts extends Fragment {
             Log.d("size", productList.size() + "" + SplashScreen.allProductsData.size());
         } else {
             productList = new ArrayList<>();
-            defaultMessage.setText("Search Any Product");
+            defaultMessage.setText(R.string.search_any_product);
             defaultMessage.setVisibility(View.VISIBLE);
         }
         setProductsData();

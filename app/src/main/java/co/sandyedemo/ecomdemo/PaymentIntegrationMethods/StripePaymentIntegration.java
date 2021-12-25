@@ -1,4 +1,3 @@
-/*
 package co.sandyedemo.ecomdemo.PaymentIntegrationMethods;
 
 import android.content.Intent;
@@ -13,14 +12,14 @@ import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.Adapters.CartListAdapter;
 import co.sandyedemo.ecomdemo.Fragments.ChoosePaymentMethod;
 import co.sandyedemo.ecomdemo.Fragments.MyCartList;
-import co.sandyedemo.ecomdemo.MVP.StripeResponse;
+import co.sandyedemo.ecomdemo.Models.StripeResponse;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
-//import com.stripe.android.Stripe;
-//import com.stripe.android.TokenCallback;
-//import com.stripe.android.model.Card;
-//import com.stripe.android.model.Token;
-//import com.stripe.android.view.CardInputWidget;
+import com.stripe.android.Stripe;
+import com.stripe.android.TokenCallback;
+import com.stripe.android.model.Card;
+import com.stripe.android.model.Token;
+import com.stripe.android.view.CardInputWidget;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -86,9 +85,7 @@ public class StripePaymentIntegration extends AppCompatActivity {
             }
         });
     }
-
-    */
-/*private void sendStripeToken(Token token) {
+private void sendStripeToken(Token token) {
 
         // sending gcm token to server
         Api.getClient().stripePayment(token.getId(),
@@ -107,7 +104,7 @@ public class StripePaymentIntegration extends AppCompatActivity {
                             {
                                 Intent intent=new Intent(StripePaymentIntegration.this,OrderConfirmed.class);
                                 startActivity(intent);
-                            //    finishAffinity();
+                                finishAffinity();
                             }else {
                                 finish();
                             }
@@ -123,11 +120,8 @@ public class StripePaymentIntegration extends AppCompatActivity {
                     @Override
                     public void failure(RetrofitError error) {
                         pDialog.dismiss();
-
                         Log.e("error", error.toString());
                     }
                 });
-    }*//*
-
+    }
 }
-*/

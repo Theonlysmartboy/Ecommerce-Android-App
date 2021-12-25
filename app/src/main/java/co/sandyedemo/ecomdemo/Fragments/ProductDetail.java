@@ -28,8 +28,8 @@ import co.sandyedemo.ecomdemo.Adapters.DotsAdapter;
 import co.sandyedemo.ecomdemo.Adapters.MyPagerAdapter;
 import co.sandyedemo.ecomdemo.Adapters.SizeListAdapter;
 import co.sandyedemo.ecomdemo.Config;
-import co.sandyedemo.ecomdemo.MVP.AddToWishlistResponse;
-import co.sandyedemo.ecomdemo.MVP.Product;
+import co.sandyedemo.ecomdemo.Models.AddToWishlistResponse;
+import co.sandyedemo.ecomdemo.Models.Product;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
@@ -206,6 +206,7 @@ public class ProductDetail extends Fragment {
                 size = sizeList.get(SizeListAdapter.pos);
             }
         } catch (Exception e) {
+            Log.d("Error", "addToCart: "+e);
         }
         try {
 
@@ -213,6 +214,7 @@ public class ProductDetail extends Fragment {
                 color = colorList.get(ColorListAdapter.pos);
             }
         } catch (Exception e) {
+            Log.d("Error", "addToCart: "+e);
         }
         final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
         pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.colorPrimary));
@@ -307,11 +309,11 @@ public class ProductDetail extends Fragment {
                         addToCart.setVisibility(View.VISIBLE);
                         Log.d("productDetailsResponse", product.getProductId() + "" + product.toString());
                         if (Integer.parseInt(product.getQuantity()) < 1) {
-                            textViews.get(4).setText("Out of Stock");
+                            textViews.get(4).setText(R.string.out_of_stock);
                             addToCart.setBackgroundColor(Color.parseColor("#80148cbf"));
-                            addToCart.setText("Out of Stock");
+                            addToCart.setText(R.string.out_of_stock);
                         } else if (Integer.parseInt(product.getQuantity()) > 0 && Integer.parseInt(product.getQuantity()) < 10) {
-                            textViews.get(4).setText("Hurry, only " + product.getQuantity() + " left");
+                            textViews.get(4).setText(getString(R.string.hurry_only) + product.getQuantity() + getString(R.string.left));
                         } else textViews.get(4).setVisibility(View.GONE);
                         textViews.get(5).setText(product.getStatus());
 
@@ -390,6 +392,7 @@ public class ProductDetail extends Fragment {
             textViews.get(2).setText(MainActivity.currency + " " + productList.get(position).getMrpprice());
             textViews.get(2).setPaintFlags(textViews.get(2).getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         } catch (Exception e) {
+            Log.d("Error", "setData: "+e);
         }
         String[] sizeArray = productList.get(position).getSize().split(",");
         String[] colorArray = productList.get(position).getProductColor().split(",");

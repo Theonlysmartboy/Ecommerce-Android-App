@@ -1,5 +1,5 @@
 
-package co.sandyedemo.ecomdemo.MVP;
+package co.sandyedemo.ecomdemo.Models;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +26,7 @@ public class UserProfileResponse {
     }
 
     private String email;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public String getName() {
         return name;

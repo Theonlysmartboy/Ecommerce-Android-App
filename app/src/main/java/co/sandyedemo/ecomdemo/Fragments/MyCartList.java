@@ -17,8 +17,8 @@ import co.sandyedemo.ecomdemo.Activities.AccountVerification;
 import co.sandyedemo.ecomdemo.Adapters.CartListAdapter;
 import co.sandyedemo.ecomdemo.Config;
 import co.sandyedemo.ecomdemo.Activities.Login;
-import co.sandyedemo.ecomdemo.MVP.CartistResponse;
-import co.sandyedemo.ecomdemo.MVP.Product;
+import co.sandyedemo.ecomdemo.Models.CartistResponse;
+import co.sandyedemo.ecomdemo.Models.Product;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
@@ -64,7 +64,7 @@ public class MyCartList extends Fragment {
         view = inflater.inflate(R.layout.fragment_cart_list, container, false);
         ButterKnife.bind(this, view);
         context = getActivity();
-        MainActivity.title.setText("My Cart");
+        MainActivity.title.setText(R.string.my_cart);
         proceedToPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,9 +139,7 @@ public class MyCartList extends Fragment {
             @Override
             public void failure(RetrofitError error) {
                 Log.d("errorInCartList", error.toString());
-
                 pDialog.dismiss();
-
             }
         });
     }

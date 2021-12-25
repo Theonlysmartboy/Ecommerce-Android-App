@@ -40,7 +40,7 @@ public class AppInfo extends Fragment {
     public void onStart() {
         super.onStart();
         ((MainActivity) getActivity()).lockUnlockDrawer(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        MainActivity.title.setText("App Info");
+        MainActivity.title.setText(R.string.app_info);
         Config.getCartList(getActivity(), true);
     }
 }

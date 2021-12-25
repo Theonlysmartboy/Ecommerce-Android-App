@@ -38,7 +38,7 @@ public class CategoryList extends Fragment {
         super.onStart();
         ((MainActivity) getActivity()).lockUnlockDrawer(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         MainActivity.search.setVisibility(View.VISIBLE);
-        MainActivity.title.setText("Categories");
+        MainActivity.title.setText(R.string.categories);
         Config.getCartList(getActivity(),true);
     }
 

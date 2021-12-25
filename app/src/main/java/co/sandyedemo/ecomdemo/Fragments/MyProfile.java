@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,8 @@ import co.sandyedemo.ecomdemo.Activities.AccountVerification;
 import co.sandyedemo.ecomdemo.Common;
 import co.sandyedemo.ecomdemo.Config;
 import co.sandyedemo.ecomdemo.Activities.Login;
-import co.sandyedemo.ecomdemo.MVP.SignUpResponse;
-import co.sandyedemo.ecomdemo.MVP.UserProfileResponse;
+import co.sandyedemo.ecomdemo.Models.SignUpResponse;
+import co.sandyedemo.ecomdemo.Models.UserProfileResponse;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
@@ -64,7 +65,7 @@ public class MyProfile extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_my_profile, container, false);
         ButterKnife.bind(this, view);
-        MainActivity.title.setText("My Profile");
+        MainActivity.title.setText(R.string.my_profile);
         if (!MainActivity.userId.equalsIgnoreCase("")) {
             getUserProfileData();
         } else {
@@ -107,7 +108,7 @@ public class MyProfile extends Fragment {
                 gender = "male";
             }
         } catch (Exception e) {
-
+            Log.d("Error", "setUserProfileData: "+e);
         }
     }
 
@@ -167,7 +168,7 @@ public class MyProfile extends Fragment {
         alertDialog.show();
         Button btn = (Button) alertDialog.findViewById(R.id.confirm_button);
         btn.setBackground(getResources().getDrawable(R.drawable.custom_dialog_button));
-        btn.setText("Logout");
+        btn.setText(R.string.logout);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -214,8 +215,6 @@ public class MyProfile extends Fragment {
                             verifyEmailLayout.setVisibility(View.VISIBLE);
                         } else
                             setUserProfileData();
-
-
                     }
 
                     @Override
@@ -249,8 +248,8 @@ public class MyProfile extends Fragment {
                         pDialog.dismiss();
                         if (signUpResponse.getSuccess().equalsIgnoreCase("true")) {
                             Config.showCustomAlertDialog(getActivity(),
-                                    "Profile Status",
-                                    "Profile updated",
+                                    getString(R.string.profile_status),
+                                    getString(R.string.profile_updated),
                                     SweetAlertDialog.SUCCESS_TYPE);
                         } else {
                             Toast.makeText(getActivity(), "Something went wrong. Please try again later", Toast.LENGTH_SHORT).show();

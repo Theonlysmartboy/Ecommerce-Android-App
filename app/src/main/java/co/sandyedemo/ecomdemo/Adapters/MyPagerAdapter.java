@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import co.sandyedemo.ecomdemo.Fragments.PageFragment;
-import co.sandyedemo.ecomdemo.MVP.SliderListResponse;
+import co.sandyedemo.ecomdemo.Models.SliderListResponse;
 
 import java.util.List;
 

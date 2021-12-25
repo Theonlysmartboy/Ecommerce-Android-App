@@ -1,28 +1,28 @@
-package co.sandyedemo.ecomdemo.MVP;
+package co.sandyedemo.ecomdemo.Models;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegistrationResponse {
+public class AddToWishlistResponse {
 
-private String Success;
-private String Message;
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+private String success;
+private String message;
+private Map<String, Object> additionalProperties = new HashMap<>();
 
 public String getSuccess() {
-return Success;
+return success;
 }
 
 public void setSuccess(String success) {
-this.Success = success;
+this.success = success;
 }
 
 public String getMessage() {
-return Message;
+return message;
 }
 
 public void setMessage(String message) {
-this.Message = message;
+this.message = message;
 }
 
 public Map<String, Object> getAdditionalProperties() {

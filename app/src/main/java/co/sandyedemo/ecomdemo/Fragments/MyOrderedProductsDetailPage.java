@@ -13,7 +13,7 @@ import android.widget.TextView;
 import co.sandyedemo.ecomdemo.Adapters.DetailOrderProductListAdapter;
 import co.sandyedemo.ecomdemo.Adapters.WishListAdapter;
 import co.sandyedemo.ecomdemo.Config;
-import co.sandyedemo.ecomdemo.MVP.Ordere;
+import co.sandyedemo.ecomdemo.Models.Order;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 
@@ -28,7 +28,7 @@ public class MyOrderedProductsDetailPage extends Fragment {
     View view;
     @BindView(R.id.orderedProductsRecyclerView)
     RecyclerView orderedProductsRecyclerView;
-    public static List<Ordere> orderes;
+    public static List<Order> orders;
     @BindViews({R.id.orderNo, R.id.date, R.id.totalAmount, R.id.paymentMode, R.id.shippingAddress, R.id.orderStatus})
     List<TextView> textViews;
     public static int pos;
@@ -48,16 +48,16 @@ public class MyOrderedProductsDetailPage extends Fragment {
     }
 
     private void setData() {
-        if (orderes.get(pos).getOrdredproduct().get(0).getCurrency().equalsIgnoreCase("USD"))
+        if (orders.get(pos).getOrdredproduct().get(0).getCurrency().equalsIgnoreCase("USD"))
             currency = "$";
         else
             currency = "₹";
-        textViews.get(0).setText(orderes.get(pos).getOrderid());
-        textViews.get(1).setText(orderes.get(pos).getDate());
-        textViews.get(3).setText(orderes.get(pos).getPaymentmode());
-        textViews.get(4).setText(orderes.get(pos).getAddress());
-        textViews.get(5).setText(orderes.get(pos).getOrdredproduct().get(0).getOrderstatus());
-        textViews.get(2).setText(currency + " " + orderes.get(pos).getTotal());
+        textViews.get(0).setText(orders.get(pos).getOrderid());
+        textViews.get(1).setText(orders.get(pos).getDate());
+        textViews.get(3).setText(orders.get(pos).getPaymentmode());
+        textViews.get(4).setText(orders.get(pos).getAddress());
+        textViews.get(5).setText(orders.get(pos).getOrdredproduct().get(0).getOrderstatus());
+        textViews.get(2).setText(currency + " " + orders.get(pos).getTotal());
     }
 
 
@@ -73,7 +73,7 @@ public class MyOrderedProductsDetailPage extends Fragment {
         GridLayoutManager gridLayoutManager;
         gridLayoutManager = new GridLayoutManager(getActivity(), 1);
         orderedProductsRecyclerView.setLayoutManager(gridLayoutManager);
-        DetailOrderProductListAdapter myOrdersAdapter = new DetailOrderProductListAdapter(getActivity(), orderes.get(pos).getOrdredproduct());
+        DetailOrderProductListAdapter myOrdersAdapter = new DetailOrderProductListAdapter(getActivity(), orders.get(pos).getOrdredproduct());
         orderedProductsRecyclerView.setAdapter(myOrdersAdapter);
 
     }

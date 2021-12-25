@@ -1,5 +1,6 @@
 package co.sandyedemo.ecomdemo.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -10,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import co.sandyedemo.ecomdemo.Fragments.ProductDetail;
-import co.sandyedemo.ecomdemo.MVP.Product;
+import co.sandyedemo.ecomdemo.Models.Product;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 import com.squareup.picasso.Picasso;
@@ -22,6 +23,7 @@ import java.util.List;
  * Created by Android
  */
 public class SearchProductListAdapter extends RecyclerView.Adapter<HomeProductsViewHolder> {
+    private static final String TAG = "Error";
     Context context;
     List<Product> productList;
 
@@ -38,7 +40,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<HomeProductsV
     }
 
     @Override
-    public void onBindViewHolder(final HomeProductsViewHolder holder, final int position) {
+    public void onBindViewHolder(final HomeProductsViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
 
         holder.cardView.setVisibility(View.GONE);
@@ -52,6 +54,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<HomeProductsV
                     .resize(Integer.parseInt(context.getResources().getString(R.string.targetProductImageWidth1)),Integer.parseInt(context.getResources().getString(R.string.targetProductImageHeight)))
                     .into(holder.image1);
         } catch (Exception e) {
+            Log.d(TAG, "onBindViewHolder: "+e);
         }
         try {
 
@@ -64,7 +67,9 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<HomeProductsV
             holder.actualPrice1.setText(MainActivity.currency + " " + productList.get(position).getMrpprice());
             holder.actualPrice1.setPaintFlags(holder.actualPrice1.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
-        }catch (Exception e){}
+        }catch (Exception e){
+            Log.d(TAG, "onBindViewHolder: "+e);
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -6,7 +6,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import co.sandyedemo.ecomdemo.Config;
-import co.sandyedemo.ecomdemo.MVP.RegistrationResponse;
+import co.sandyedemo.ecomdemo.Models.RegistrationResponse;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;

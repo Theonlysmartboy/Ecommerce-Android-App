@@ -24,7 +24,7 @@ public class EditProfile extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
         ButterKnife.bind(this, view);
-        MainActivity.title.setText("Edit Profile");
+        MainActivity.title.setText(R.string.edit_profile);
         return view;
     }
 

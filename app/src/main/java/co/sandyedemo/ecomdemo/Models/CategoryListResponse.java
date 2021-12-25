@@ -1,14 +1,31 @@
-package co.sandyedemo.ecomdemo.MVP;
+package co.sandyedemo.ecomdemo.Models;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class Category {
+public class CategoryListResponse {
 
+    private List<Product> products = null;
+    private Map<String, Object> additionalProperties = new HashMap<>();
     private String cat_id;
     private String category_name;
     private String category_image;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
 
     public String getCat_id() {
         return cat_id;
@@ -32,14 +49,6 @@ public class Category {
 
     public void setCategory_image(String category_image) {
         this.category_image = category_image;
-    }
-
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
     }
 
 }

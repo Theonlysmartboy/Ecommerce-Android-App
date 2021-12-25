@@ -30,10 +30,12 @@ import butterknife.OnClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.Config;
-import co.sandyedemo.ecomdemo.MVP.UserProfileResponse;
+import co.sandyedemo.ecomdemo.Models.UserProfileResponse;
 //import co.sandyedemo.ecomdemo.PaymentIntegrationMethods.PayPalActivityPayment;
 //import co.sandyedemo.ecomdemo.PaymentIntegrationMethods.StripePaymentIntegration;
+import co.sandyedemo.ecomdemo.PaymentIntegrationMethods.PayPalActivityPayment;
 import co.sandyedemo.ecomdemo.PaymentIntegrationMethods.RazorPayIntegration;
+import co.sandyedemo.ecomdemo.PaymentIntegrationMethods.StripePaymentIntegration;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
 import retrofit.Callback;
@@ -72,7 +74,7 @@ public class ChoosePaymentMethod extends Fragment {
         int layout = R.layout.fragment_choose_payment_method;
         view = inflater.inflate(layout, container, false);
         ButterKnife.bind(this, view);
-        MainActivity.title.setText("Choose Payment Method");
+        MainActivity.title.setText(R.string.choose_payment_method);
         MainActivity.cart.setVisibility(View.GONE);
         MainActivity.cartCount.setVisibility(View.GONE);
         getUserProfileData();
@@ -81,7 +83,7 @@ public class ChoosePaymentMethod extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     addNewAddressLayout.setVisibility(View.GONE);
-                    addNewAddress.setText("Add New Address");
+                    addNewAddress.setText(R.string.add_new_address);
 
                 }
             }
@@ -109,7 +111,7 @@ public class ChoosePaymentMethod extends Fragment {
             case R.id.addNewAddress:
                 addNewAddressLayout.setVisibility(View.VISIBLE);
                 addressCheckBox.setChecked(false);
-                addNewAddress.setText("Use This Address");
+                addNewAddress.setText(R.string.use_this_address);
                 break;
             case R.id.makePayment:
                 if (!addressCheckBox.isChecked()) {
@@ -161,22 +163,22 @@ public class ChoosePaymentMethod extends Fragment {
     }
     private void moveNext() {
         switch (paymentMethodsGroup.getCheckedRadioButtonId()) {
-            //case R.id.paypal:
-              //  paymentMethod = "paypal";
-                //intent = new Intent(getActivity(), PayPalActivityPayment.class);
-                //startActivity(intent);
-                //break;
+            case R.id.paypal:
+                paymentMethod = "paypal";
+                intent = new Intent(getActivity(), PayPalActivityPayment.class);
+                startActivity(intent);
+                break;
             case R.id.cod:
                 paymentMethod = "cod";
                 Config.addOrder(getActivity(),
                         "COD",
                         "COD");
                 break;
-            //case R.id.stripe:
-              //  paymentMethod = "stripe";
-                //intent = new Intent(getActivity(), StripePaymentIntegration.class);
-                //startActivity(intent);
-                //break;
+            case R.id.stripe:
+                paymentMethod = "stripe";
+                intent = new Intent(getActivity(), StripePaymentIntegration.class);
+                startActivity(intent);
+                break;
 
             case R.id.razorPay:
                 paymentMethod = "razorPay";
@@ -186,8 +188,8 @@ public class ChoosePaymentMethod extends Fragment {
             default:
                 paymentMethod = "";
                 Config.showCustomAlertDialog(getActivity(),
-                        "Payment Method",
-                        "Select your payment method to make payment",
+                        getString(R.string.payment_method),
+                        getString(R.string.select_payment_method_to_make_payment),
                         SweetAlertDialog.NORMAL_TYPE);
                 break;
 
@@ -201,7 +203,7 @@ public class ChoosePaymentMethod extends Fragment {
         if (editText.getText().toString().trim().length() > 0) {
             return true;
         }
-        editText.setError("Please Fill This");
+        editText.setError(getString(R.string.please_fill_this));
         editText.requestFocus();
         return false;
     }

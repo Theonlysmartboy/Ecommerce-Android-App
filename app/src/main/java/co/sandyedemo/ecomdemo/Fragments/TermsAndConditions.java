@@ -10,7 +10,7 @@ import android.webkit.WebView;
 
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.Config;
-import co.sandyedemo.ecomdemo.MVP.TermsResponse;
+import co.sandyedemo.ecomdemo.Models.TermsResponse;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
 
@@ -42,7 +42,7 @@ public class TermsAndConditions extends Fragment {
     public void onStart() {
         super.onStart();
         ((MainActivity) getActivity()).lockUnlockDrawer(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        MainActivity.title.setText("Terms & Conditions");
+        MainActivity.title.setText(R.string.terms_and_conditions);
         Config.getCartList(getActivity(), true);
     }
 

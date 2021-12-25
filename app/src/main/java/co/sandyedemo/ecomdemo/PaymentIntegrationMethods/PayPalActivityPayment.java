@@ -1,4 +1,4 @@
-/*
+
 package co.sandyedemo.ecomdemo.PaymentIntegrationMethods;
 
 import android.app.Activity;
@@ -90,4 +90,3 @@ public class PayPalActivityPayment extends AppCompatActivity {
         }
     }
 }
-*/

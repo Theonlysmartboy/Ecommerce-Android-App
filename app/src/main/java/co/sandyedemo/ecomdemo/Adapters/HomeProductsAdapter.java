@@ -1,5 +1,6 @@
 package co.sandyedemo.ecomdemo.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.view.ViewGroup;
 
 import co.sandyedemo.ecomdemo.Fragments.Home;
 import co.sandyedemo.ecomdemo.Fragments.ProductDetail;
-import co.sandyedemo.ecomdemo.MVP.Product;
+import co.sandyedemo.ecomdemo.Models.Product;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 import com.squareup.picasso.Picasso;
@@ -43,7 +44,7 @@ public class HomeProductsAdapter extends RecyclerView.Adapter<HomeProductsViewHo
     }
 
     @Override
-    public void onBindViewHolder(final HomeProductsViewHolder holder, final int position) {
+    public void onBindViewHolder(final HomeProductsViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         if (this.parentPosition % 2 == 0) {
             holder.cardView.setVisibility(View.VISIBLE);

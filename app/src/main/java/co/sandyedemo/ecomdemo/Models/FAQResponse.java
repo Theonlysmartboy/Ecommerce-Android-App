@@ -1,4 +1,4 @@
-package co.sandyedemo.ecomdemo.MVP;
+package co.sandyedemo.ecomdemo.Models;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,7 @@ public class FAQResponse {
 
 private String title;
 private String description;
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+private Map<String, Object> additionalProperties = new HashMap<>();
 
 public String getTitle() {
 return title;

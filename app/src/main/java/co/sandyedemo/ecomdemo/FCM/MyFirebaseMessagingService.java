@@ -26,9 +26,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Map;
 
-
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
-
     public  String ANDROID_CHANNEL_ID = null;
     public static final String ANDROID_CHANNEL_NAME = "ANDROID CHANNEL";
     private static final String TAG = MyFirebaseMessagingService.class.getSimpleName();
@@ -63,7 +61,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createChannels();
 
-
             notificationManager.notify(0 /* ID of notification */,  getAndroidChannelNotification(placeTitle,placeMessage).build());
         }else{
 
@@ -72,17 +69,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     }
     private void createNotification(RemoteMessage remoteMessage) {
-
         Bitmap remote_picture = null;
         int icon = R.drawable.appicon;
         //if message and image url
         if (placeMessage != null && placeImage != null) {
 
-
             Log.v("TAG_MESSAGE", "" + placeMessage);
             Log.v("TAG_IMAGE", "" + placeImage);
-//                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//                notificationManager.cancel(NOTIFICATION_ID);
+                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.cancel(NOTIFICATION_ID);
 
             NotificationCompat.BigPictureStyle notiStyle = new NotificationCompat.BigPictureStyle();
             notiStyle.setSummaryText(placeMessage);
@@ -105,10 +100,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 (int) (Math.random() * 100), gotoIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
-
-
-
-
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         // NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, ADMIN_CHANNEL_ID)
 
@@ -120,14 +111,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setAutoCancel(true)
                 .setContentTitle(placeTitle)
                 .setPriority(Notification.PRIORITY_HIGH)
-                // .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
+                //.setStyle(new NotificationCompat.BigTextStyle().bigText(message))
                 .setStyle(new Notification.BigPictureStyle()
                         .bigPicture(remote_picture)
                         .setBigContentTitle(placeTitle))
                 .setContentIntent(contentIntent)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setContentText(placeMessage).build();
-        // .setStyle(notiStyle).build();
+         //.setStyle(notiStyle).build();
 
         notificationManager.notify(0   , notification);
 
@@ -135,7 +126,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void createChannels() {
-
         // create android channel
         NotificationChannel androidChannel = new NotificationChannel(ANDROID_CHANNEL_ID,
                 ANDROID_CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
@@ -156,12 +146,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         int icon = R.drawable.appicon;
         //if message and image url
         if (placeMessage != null && placeImage != null) {
-
-
                 Log.v("TAG_MESSAGE", "" + placeMessage);
                 Log.v("TAG_IMAGE", "" + placeImage);
-//                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//                notificationManager.cancel(NOTIFICATION_ID);
+                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.cancel(NOTIFICATION_ID);
 
                 NotificationCompat.BigPictureStyle notiStyle = new NotificationCompat.BigPictureStyle();
                 notiStyle.setSummaryText(placeMessage);
@@ -172,19 +160,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     e.printStackTrace();
                 }
                 notiStyle.bigPicture(remote_picture);
-
             }
                 PendingIntent contentIntent = null;
-
                 Intent gotoIntent = new Intent();
                 gotoIntent.putExtra("id", placeId);
                 gotoIntent.setClassName(mContext, getApplicationContext().getPackageName()+".Activities.SplashScreen");//Start activity when user taps on notification.
                 contentIntent = PendingIntent.getActivity(mContext,
                         (int) (Math.random() * 100), gotoIntent,
                         PendingIntent.FLAG_UPDATE_CURRENT);
-
-
-
 
         return new Notification.Builder(getApplicationContext(), ANDROID_CHANNEL_ID)
                 .setContentTitle(title)
@@ -196,8 +179,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setContentIntent(contentIntent)
                 .setStyle(new Notification.BigPictureStyle()
                         .bigPicture(remote_picture)
-                        .setBigContentTitle(placeTitle))
-                ;
+                        .setBigContentTitle(placeTitle));
     }
-
 }

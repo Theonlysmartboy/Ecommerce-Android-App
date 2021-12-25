@@ -1,4 +1,4 @@
-package co.sandyedemo.ecomdemo.MVP;
+package co.sandyedemo.ecomdemo.Models;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 public class TermsResponse {
 
 private String terms;
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+private Map<String, Object> additionalProperties = new HashMap<>();
 
 public String getTerms() {
 return terms;

@@ -10,7 +10,7 @@ import android.webkit.WebView;
 
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.Config;
-import co.sandyedemo.ecomdemo.MVP.FAQResponse;
+import co.sandyedemo.ecomdemo.Models.FAQResponse;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
 
@@ -48,7 +48,7 @@ public class FAQ extends Fragment {
     public void getFAQ() {
         final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
         pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.colorPrimary));
-        pDialog.setTitleText("Loading");
+        pDialog.setTitleText(getString(R.string.loading));
         pDialog.setCancelable(false);
         pDialog.show();
         Api.getClient().getFAQ(new Callback<FAQResponse>() {

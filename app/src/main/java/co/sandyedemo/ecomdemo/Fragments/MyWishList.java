@@ -16,8 +16,8 @@ import co.sandyedemo.ecomdemo.Activities.AccountVerification;
 import co.sandyedemo.ecomdemo.Adapters.WishListAdapter;
 import co.sandyedemo.ecomdemo.Config;
 import co.sandyedemo.ecomdemo.Activities.Login;
-import co.sandyedemo.ecomdemo.MVP.Product;
-import co.sandyedemo.ecomdemo.MVP.WishlistResponse;
+import co.sandyedemo.ecomdemo.Models.Product;
+import co.sandyedemo.ecomdemo.Models.WishlistResponse;
 import co.sandyedemo.ecomdemo.Activities.MainActivity;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
@@ -57,7 +57,7 @@ public class MyWishList extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_wish_list, container, false);
         ButterKnife.bind(this, view);
-        MainActivity.title.setText("My Wish List");
+        MainActivity.title.setText(R.string.my_wish_list);
         if (!MainActivity.userId.equalsIgnoreCase("")) {
             getWishList();
         } else {

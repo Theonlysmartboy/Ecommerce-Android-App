@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import co.sandyedemo.ecomdemo.Config;
-import co.sandyedemo.ecomdemo.MVP.SignUpResponse;
+import co.sandyedemo.ecomdemo.Models.SignUpResponse;
 import co.sandyedemo.ecomdemo.R;
 import co.sandyedemo.ecomdemo.Retrofit.Api;
 

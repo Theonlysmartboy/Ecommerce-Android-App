@@ -1,18 +1,28 @@
-package co.sandyedemo.ecomdemo.MVP;
+package co.sandyedemo.ecomdemo.Models;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MyOrdersResponse {
-    private String success;
+public class CartistResponse {
 
+
+    private String success;
+    private String cartid;
     private String userid;
     private String useremail;
     private String tax;
     private String shipping;
-    private List<Ordere> orderes = null;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private List<Product> products = null;
+    private Map<String, Object> additionalProperties = new HashMap<>();
+
+    public String getCartid() {
+        return cartid;
+    }
+
+    public void setCartid(String cartid) {
+        this.cartid = cartid;
+    }
 
     public String getUserid() {
         return userid;
@@ -38,6 +48,13 @@ public class MyOrdersResponse {
         this.tax = tax;
     }
 
+    public String getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(String success) {
+        this.success = success;
+    }
     public String getShipping() {
         return shipping;
     }
@@ -46,21 +63,14 @@ public class MyOrdersResponse {
         this.shipping = shipping;
     }
 
-    public List<Ordere> getOrderes() {
-        return orderes;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setOrderes(List<Ordere> orderes) {
-        this.orderes = orderes;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
-    public String getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(String success) {
-        this.success = success;
-    }
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
     }
