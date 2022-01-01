@@ -61,7 +61,6 @@
                         android:drawablePadding="15dp"
                         android:hint="Search for products..."
                         android:paddingLeft="25dp" />
-
                     <SearchView
                         android:id="@+id/searchView"
                         android:layout_width="match_parent"
