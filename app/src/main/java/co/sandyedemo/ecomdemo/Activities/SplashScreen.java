@@ -169,7 +169,6 @@ public class SplashScreen extends Activity {
 
     private void moveNext() {
 // redirect to next page after getting data from server
-
         boolean isFromNotification;
         try {
             imagesList1 = new ArrayList<>();

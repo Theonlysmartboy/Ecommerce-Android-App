@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -10,14 +9,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:src="@drawable/order_confirmed" />
+        android:src="@drawable/order_confirmed"
+        android:contentDescription="@string/order_confirmation" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Order Confirmation"
+        android:text="@string/order_confirmation"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:text="Thank you for placing your order with us."
+        android:text="@string/thank_you_for_placing_your_order_with_us"
         android:textColor="@color/black"
         android:textSize="17sp" />
 
@@ -37,7 +37,7 @@
         android:layout_gravity="center"
         android:layout_margin="25dp"
         android:gravity="center"
-        android:text="Please check your email for more details. For any questions and further information, please contact our customer support."
+        android:text="@string/please_check_your_email_for_more_details_for_any_questions_and_further_information_please_contact_our_customer_support"
         android:textSize="17sp" />
 
     <Button
@@ -46,8 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/continue_shopping"
-        android:inputType="text"
-        android:text="Continue Shopping"
+        android:text="@string/continue_shopping"
         android:textColor="@color/colorPrimary" />
 
 </LinearLayout>

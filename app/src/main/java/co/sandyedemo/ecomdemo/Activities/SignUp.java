@@ -56,9 +56,6 @@ public class SignUp extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.txtSignIn:
-                Config.moveTo(SignUp.this, Login.class);
-                finishAffinity();
-                break;
             case R.id.back:
                 Config.moveTo(SignUp.this, Login.class);
                 finishAffinity();
@@ -90,7 +87,7 @@ public class SignUp extends AppCompatActivity {
         if (editText.getText().toString().trim().length() > 5) {
             return true;
         } else if (editText.getText().toString().trim().length() > 0) {
-            editText.setError("Password must be of 6 characters");
+            editText.setError("Password must be at least 6 characters");
             editText.requestFocus();
             return false;
         }
@@ -98,7 +95,6 @@ public class SignUp extends AppCompatActivity {
         editText.requestFocus();
         return false;
     }
-
 
     private void signUp() {
         final SweetAlertDialog pDialog = new SweetAlertDialog(SignUp.this, SweetAlertDialog.PROGRESS_TYPE);
@@ -115,7 +111,7 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void success(SignUpResponse signUpResponse, Response response) {
                         pDialog.dismiss();
-//                        Log.d("signUpResponse", signUpResponse.getMessage());
+                       Log.d("signUpResponse", signUpResponse.getMessage());
                         Toast.makeText(SignUp.this, signUpResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         if (signUpResponse.getSuccess().equalsIgnoreCase("true")) {
 
@@ -124,7 +120,7 @@ public class SignUp extends AppCompatActivity {
                             Intent intent = new Intent(SignUp.this, MainActivity.class);
                             intent.putExtra("from", "signUp");
                             startActivity(intent);
-//                            Config.moveTo(SignUp.this, MainActivity.class);
+                           Config.moveTo(SignUp.this, MainActivity.class);
                             finishAffinity();
                         }
 

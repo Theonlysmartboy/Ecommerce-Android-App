@@ -29,10 +29,9 @@ import retrofit.client.Response;
 public class Config {
     // broadcast receiver intent filters
     public static final String REGISTRATION_COMPLETE = "registrationComplete";
-   // public static final String PAYPAL_CLIENT_ID = "your_paypal_id";
+   public static final String PAYPAL_CLIENT_ID = "your_paypal_id";
     // id to handle the notification in the notification tray
     public static final String SHARED_PREF = "ah_firebase";
-    public static final String PAYPAL_CLIENT_ID = "" ;
 
     public static void moveTo(Context context, Class targetClass) {
         Intent intent = new Intent(context, targetClass);
@@ -86,9 +85,9 @@ public class Config {
         if (msg.length() > 0)
             alertDialog.setContentText(msg);
         alertDialog.show();
-        Button btn = (Button) alertDialog.findViewById(R.id.confirm_button);
+        Button btn = alertDialog.findViewById(R.id.confirm_button);
         btn.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
-        Button btn1 = (Button) alertDialog.findViewById(R.id.cancel_button);
+        Button btn1 = alertDialog.findViewById(R.id.cancel_button);
         btn1.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
 
     }

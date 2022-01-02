@@ -67,7 +67,6 @@ public class OptionalImageFullView extends AppCompatActivity {
         imageText.setText("Image " + (currentPos + 1) + " of " + imagesList.size());
     }
 
-
     class CustomPagerAdapter extends PagerAdapter {
 
         Context mContext;
@@ -110,5 +109,4 @@ public class OptionalImageFullView extends AppCompatActivity {
             container.removeView((LinearLayout) object);
         }
     }
-
 }

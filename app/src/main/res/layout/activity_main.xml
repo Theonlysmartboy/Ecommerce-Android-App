@@ -39,7 +39,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-
                 <LinearLayout
                     android:id="@+id/searchLayout"
                     android:layout_width="match_parent"
@@ -59,7 +58,7 @@
                         android:drawableTint="@color/light_black"
                         android:gravity="center_vertical"
                         android:drawablePadding="15dp"
-                        android:hint="Search for products..."
+                        android:hint="@string/search_for_products"
                         android:paddingLeft="25dp" />
                     <SearchView
                         android:id="@+id/searchView"
@@ -72,7 +71,7 @@
                         android:closeIcon="@drawable/close"
                         android:iconifiedByDefault="false"
                         android:queryBackground="@color/white"
-                        android:queryHint="Search for Products, Categories and More..."
+                        android:queryHint="@string/search_hint"
                         android:searchIcon="@drawable/search_icon"
                         android:visibility="gone" />
                 </LinearLayout>
