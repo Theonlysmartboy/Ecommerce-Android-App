@@ -91,7 +91,7 @@ public class OptionalImageFullView extends AppCompatActivity {
         public Object instantiateItem(ViewGroup container, int position) {
             View itemView = mLayoutInflater.inflate(R.layout.pager_item, container, false);
 
-            imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            imageView = itemView.findViewById(R.id.imageView);
             Picasso.with(mContext)
                     .load(imagesList.get(position))
                     .placeholder(R.drawable.defaultimage)

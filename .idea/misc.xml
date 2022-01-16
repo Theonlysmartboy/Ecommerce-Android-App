@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/cart_count_back.xml" value="0.10364583333333334" />
         <entry key="app/src/main/res/layout/activity_account_verification.xml" value="0.19021739130434784" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.12537993920972645" />
@@ -16,8 +17,10 @@
         <entry key="app/src/main/res/layout/custom_title1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/detail_ordered_products_list_items1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_choose_payment_method.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_product_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/home_layout.xml" value="0.1296875" />
         <entry key="app/src/main/res/layout/home_products_list_items.xml" value="0.1296875" />
+        <entry key="app/src/main/res/layout/pager_item.xml" value="0.1" />
       </map>
     </option>
   </component>
